@@ -1741,3 +1741,32 @@ footer {
 @media (max-width: 768px) {
   .pillars-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Roadmap centrata ──────────────────────────────────────────────────────
+   Con 21 capitoli l'alternanza destra/sinistra creava problemi di lettura:
+   su schermi larghi ogni card sta al centro, sulla linea, con il nodo
+   appoggiato sul bordo superiore. Vale anche per i sette assi di Roma 2030.
+   Su mobile resta la colonna unica con la linea a sinistra (regola esistente). */
+@media (min-width: 769px) {
+  .tl-item {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+  .tl-item .tl-node { order: 0; top: 0; margin-bottom: -22px; }
+  .tl-item .tl-spacer { display: none; }
+  .tl-item .tl-content,
+  .tl-content.tl-left,
+  .tl-content.tl-right {
+    order: 1;
+    width: min(640px, 100%);
+    margin: 0;
+    text-align: center;
+    padding-top: 34px;
+  }
+  .tl-content.tl-left .tl-card-cta { flex-direction: row; }
+  .tl-content.tl-left .tl-card-cta svg { transform: none; }
+  .tl-card-cta { justify-content: center; }
+  /* i testi lunghi delle card di Roma 2030 restano allineati a sinistra */
+  .tl-card-desc, .tl-card-refs, .tl-card-econ { text-align: left; }
+}
