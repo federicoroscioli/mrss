@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════
-   PRSS — Partito per il Rinnovamento Sociale e la Sostenibilità
+   MRSS — Movimento per il Rinnovamento Sociale e la Sostenibilità
    Main stylesheet · 2026
    ══════════════════════════════════════════════════════ */
 
@@ -1435,7 +1435,7 @@ footer {
   }
 }
 
-/* ── Costo/Beneficio label (PRSS + Roma) ────────────────────────────────── */
+/* ── Costo/Beneficio label (MRSS + Roma) ────────────────────────────────── */
 .tl-card-cost {
   font-size: 11px;
   font-weight: 600;
@@ -1664,3 +1664,11 @@ footer {
   margin: 0;
 }
 .disclaimer-note strong { color: var(--ink); }
+
+/* ── Roma 2030: piano finanziario (generato dal markdown, come nel PDF) ──── */
+.roma-finanza { padding: 24px 0 72px; }
+.roma-finanza-body { max-width: 860px; margin: 0 auto; }
+.roma-finanza-body table { width: 100%; }
+@media (max-width: 640px) {
+  .roma-finanza-body table { display: block; overflow-x: auto; }
+}
