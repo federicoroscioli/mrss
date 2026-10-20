@@ -670,8 +670,12 @@ p { line-height: 1.7; }
   }
   .tl-node svg { width: 22px; height: 22px; }
   .tl-spacer { display: none; }
+  /* la card occupa lo spazio rimasto accanto al nodo: con width 100% e
+     flex-shrink 0 sbordava a destra e la pagina scorreva di lato sui telefoni */
   .tl-content {
-    width: 100%;
+    width: auto;
+    flex: 1;
+    min-width: 0;
     margin: 0 !important;
     text-align: left !important;
   }
@@ -1448,31 +1452,36 @@ footer {
   letter-spacing: 0.1px;
 }
 
-/* ── Roma card extensions ───────────────────────────────────────────────── */
-.tl-card-desc {
-  font-size: 13px;
-  line-height: 1.75;
-  color: var(--mid);
-  margin-top: 10px;
-}
-.tl-card-refs {
-  list-style: none;
+/* ── Roma: testo completo dell'asse a scomparsa ─────────────────────────────
+   Le card mostrano principio e costo; il testo integrale dell'asse (dal
+   markdown, come il PDF) si apre con "Leggi l'asse completo". Il testo lungo
+   resta allineato a sinistra anche nelle card centrate. */
+.tl-card-more {
   margin-top: 14px;
+  text-align: left;
+}
+.tl-card-more summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+}
+.tl-card-full {
+  margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid var(--light);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #3a3a4e;
 }
-.tl-card-refs li {
-  font-size: 11px;
-  color: var(--mid);
-  line-height: 1.55;
-}
-.tl-card-refs li strong {
-  color: var(--ink);
-  font-weight: 700;
-}
+.tl-card-full h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 18px 0 6px; }
+.tl-card-full h3:first-child { margin-top: 0; }
+.tl-card-full p { margin: 0 0 10px; }
+.tl-card-full ul { margin: 0 0 12px; padding-left: 20px; }
+.tl-card-full li { margin-bottom: 4px; list-style: disc; }
+.tl-card-full strong { color: var(--ink); }
+.tl-card-full a { color: var(--azzurro); }
 
 /* ── Roma Hero ──────────────────────────────────────────────────────────── */
 .roma-hero {
@@ -1767,6 +1776,6 @@ footer {
   .tl-content.tl-left .tl-card-cta { flex-direction: row; }
   .tl-content.tl-left .tl-card-cta svg { transform: none; }
   .tl-card-cta { justify-content: center; }
-  /* i testi lunghi delle card di Roma 2030 restano allineati a sinistra */
-  .tl-card-desc, .tl-card-refs, .tl-card-econ { text-align: left; }
+  /* la nota di stima delle card di Roma 2030 resta allineata a sinistra */
+  .tl-card-econ { text-align: left; }
 }
