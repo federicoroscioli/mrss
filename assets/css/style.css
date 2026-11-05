@@ -1526,6 +1526,19 @@ footer {
   transition: opacity var(--transition), box-shadow var(--transition);
 }
 .roma-hero-pdf:hover, .hero-pdf-btn:hover { opacity: .88; box-shadow: var(--shadow-md); }
+/* due pulsanti PDF: prima l'executive summary (pieno), poi il programma
+   completo (chiaro). In homepage stanno uno sotto l'altro, nella pagina di
+   Roma uno accanto all'altro (uno sotto l'altro sui telefoni) */
+.pdf-btn-secondario {
+  background: var(--white);
+  color: var(--azzurro);
+  box-shadow: inset 0 0 0 1.5px var(--azzurro);
+}
+.hero-pdf-btn + .hero-pdf-btn { margin-top: 10px; }
+.roma-hero-pdf + .roma-hero-pdf { margin-left: 10px; }
+@media (max-width: 768px) {
+  .roma-hero-pdf + .roma-hero-pdf { margin-left: 0; margin-top: 10px; }
+}
 
 /* ── Roma intro section ─────────────────────────────────────────────────── */
 .roma-intro-section {
